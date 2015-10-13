@@ -21,10 +21,6 @@ var _gulpLoadPlugins = require('gulp-load-plugins');
 
 var _gulpLoadPlugins2 = _interopRequireDefault(_gulpLoadPlugins);
 
-var _jspm = require('jspm');
-
-var _jspm2 = _interopRequireDefault(_jspm);
-
 var _runSequence = require('run-sequence');
 
 var _runSequence2 = _interopRequireDefault(_runSequence);
@@ -55,14 +51,7 @@ function makeSettings(environments) {
   });
 }
 
-_gulp2['default'].task('build:jspm', ['compile:styles', 'js:lint'], function () {
-  var builder = new _jspm2['default'].Builder();
-  return builder.buildStatic(paths.TMP_INDEX_JS, paths.BUILD_INDEX_JS, {
-    minify: false,
-    mangle: false,
-    sourceMaps: true
-  });
-});
+_gulp2['default'].task('build:jspm', ['compile:styles', 'js:lint'], $.shell.task(['jspm bundle-sfx ' + paths.TMP_INDEX_JS + ' ' + paths.BUILD_INDEX_JS]));
 
 _gulp2['default'].task('build:js', function (callback) {
   return (0, _runSequence2['default'])('build:jspm', 'js:replace_paths', callback);

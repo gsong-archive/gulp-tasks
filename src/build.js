@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 
 import gulpLoadPlugins from 'gulp-load-plugins';
-import jspm from 'jspm';
 import runSequence from 'run-sequence';
 
 import * as paths from './paths';
@@ -32,16 +31,9 @@ export function makeSettings(environments) {
 }
 
 
-gulp.task('build:jspm', ['compile:styles', 'js:lint'], () => {
-  const builder = new jspm.Builder();
-  return builder.buildStatic(
-    paths.TMP_INDEX_JS, paths.BUILD_INDEX_JS, {
-      minify: false,
-      mangle: false,
-      sourceMaps: true
-    }
-  );
-});
+gulp.task('build:jspm', ['compile:styles', 'js:lint'], $.shell.task([
+  `jspm bundle-sfx ${paths.TMP_INDEX_JS} ${paths.BUILD_INDEX_JS}`
+]));
 
 
 gulp.task('build:js', (callback) => runSequence(
