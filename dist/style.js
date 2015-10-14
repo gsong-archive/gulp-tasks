@@ -30,5 +30,5 @@ _gulp2['default'].task('compile:styles', function () {
   return _gulp2['default'].src(paths.SRC_STYLE).pipe($.changed(paths.TMP_DIR, { extension: '.css' })).pipe((0, _vinylPaths2['default'])(function (paths) {
     $.util.log('Compiling ' + paths + '…');
     return Promise.resolve();
-  })).pipe($.sass().on('error', $.sass.logError)).pipe($.autoprefixer(AUTOPREFIXER_BROWSERS)).pipe(_gulp2['default'].dest(paths.TMP_DIR));
+  })).pipe($.sass({ outputStyle: 'compressed' }).on('error', $.sass.logError)).pipe($.autoprefixer(AUTOPREFIXER_BROWSERS)).pipe(_gulp2['default'].dest(paths.TMP_DIR));
 });

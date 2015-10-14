@@ -19,7 +19,7 @@ gulp.task('compile:styles', () => {
     $.util.log(`Compiling ${paths}…`);
     return Promise.resolve();
   }))
-  .pipe($.sass().on('error', $.sass.logError))
+  .pipe($.sass({outputStyle: 'compressed'}).on('error', $.sass.logError))
   .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
   .pipe(gulp.dest(paths.TMP_DIR));
 });
