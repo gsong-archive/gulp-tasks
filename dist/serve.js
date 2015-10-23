@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['exports', 'browser-sync', 'gulp-load-plugins', 'run-sequence', './paths', './_gulp'], factory);
+    define(['exports', 'browser-sync', 'gulp-load-plugins', 'run-sequence', './build', './dist', './script', './style', './paths', './_gulp'], factory);
   } else if (typeof exports !== 'undefined') {
-    factory(exports, require('browser-sync'), require('gulp-load-plugins'), require('run-sequence'), require('./paths'), require('./_gulp'));
+    factory(exports, require('browser-sync'), require('gulp-load-plugins'), require('run-sequence'), require('./build'), require('./dist'), require('./script'), require('./style'), require('./paths'), require('./_gulp'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.browserSync, global.gulpLoadPlugins, global.runSequence, global.paths, global.gulp);
+    factory(mod.exports, global.browserSync, global.gulpLoadPlugins, global.runSequence, global.build, global.dist, global.script, global.style, global.paths, global.gulp);
     global.serve = mod.exports;
   }
-})(this, function (exports, _browserSync, _gulpLoadPlugins, _runSequence, _paths, _gulp) {
+})(this, function (exports, _browserSync, _gulpLoadPlugins, _runSequence, _build, _dist, _script, _style, _paths, _gulp) {
   'use strict';
 
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }

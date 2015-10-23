@@ -1,5 +1,6 @@
 import ghpages from 'gh-pages';
 
+import './dist';
 import * as paths from './paths';
 import gulp from './_gulp';
 

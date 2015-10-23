@@ -1,6 +1,10 @@
 import gulpLoadPlugins from 'gulp-load-plugins';
 import runSequence from 'run-sequence';
 
+import './build';
+import './clean';
+import './script';
+import './utils';
 import * as paths from './paths';
 import gulp from './_gulp';
 

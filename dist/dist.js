@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['exports', 'gulp-load-plugins', 'run-sequence', './paths', './_gulp'], factory);
+    define(['exports', 'gulp-load-plugins', 'run-sequence', './build', './clean', './script', './utils', './paths', './_gulp'], factory);
   } else if (typeof exports !== 'undefined') {
-    factory(exports, require('gulp-load-plugins'), require('run-sequence'), require('./paths'), require('./_gulp'));
+    factory(exports, require('gulp-load-plugins'), require('run-sequence'), require('./build'), require('./clean'), require('./script'), require('./utils'), require('./paths'), require('./_gulp'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.gulpLoadPlugins, global.runSequence, global.paths, global.gulp);
+    factory(mod.exports, global.gulpLoadPlugins, global.runSequence, global.build, global.clean, global.script, global.utils, global.paths, global.gulp);
     global.dist = mod.exports;
   }
-})(this, function (exports, _gulpLoadPlugins, _runSequence, _paths, _gulp) {
+})(this, function (exports, _gulpLoadPlugins, _runSequence, _build, _clean, _script, _utils, _paths, _gulp) {
   'use strict';
 
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }

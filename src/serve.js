@@ -2,6 +2,10 @@ import browserSync from 'browser-sync';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import runSequence from 'run-sequence';
 
+import './build';
+import './dist';
+import './script';
+import './style';
 import * as paths from './paths';
 import gulp from './_gulp';
 

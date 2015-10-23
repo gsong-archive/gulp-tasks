@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['exports', 'fs', 'path', 'gulp-load-plugins', 'run-sequence', './paths', './_gulp', '../package.json'], factory);
+    define(['exports', 'fs', 'path', 'gulp-load-plugins', 'run-sequence', './clean', './script', './style', './utils', './paths', './_gulp', '../package.json'], factory);
   } else if (typeof exports !== 'undefined') {
-    factory(exports, require('fs'), require('path'), require('gulp-load-plugins'), require('run-sequence'), require('./paths'), require('./_gulp'), require('../package.json'));
+    factory(exports, require('fs'), require('path'), require('gulp-load-plugins'), require('run-sequence'), require('./clean'), require('./script'), require('./style'), require('./utils'), require('./paths'), require('./_gulp'), require('../package.json'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.fs, global.path, global.gulpLoadPlugins, global.runSequence, global.paths, global.gulp, global.packageSpec);
+    factory(mod.exports, global.fs, global.path, global.gulpLoadPlugins, global.runSequence, global.clean, global.script, global.style, global.utils, global.paths, global.gulp, global.packageSpec);
     global.build = mod.exports;
   }
-})(this, function (exports, _fs, _path, _gulpLoadPlugins, _runSequence, _paths, _gulp, _packageJson) {
+})(this, function (exports, _fs, _path, _gulpLoadPlugins, _runSequence, _clean, _script, _style, _utils, _paths, _gulp, _packageJson) {
   'use strict';
 
   Object.defineProperty(exports, '__esModule', {
