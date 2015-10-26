@@ -46,5 +46,8 @@
     "jspm": "~0.16.12",
     "run-sequence": "~1.1.4",
     "vinyl-paths": "~2.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "~4.1.3"
   }
 }
