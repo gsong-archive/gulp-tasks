@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
+import Builder from 'systemjs-builder';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import runSequence from 'run-sequence';
 
@@ -35,9 +36,15 @@ export function makeSettings(environments) {
 }
 
 
-gulp.task('build:jspm', ['compile:styles', 'js:lint'], $.shell.task([
-  `jspm bundle-sfx ${paths.TMP_INDEX_JS} ${paths.BUILD_INDEX_JS}`
-]));
+gulp.task('build:jspm', ['compile:styles', 'js:lint'], (cb) => {
+  const builder = new Builder(
+    paths.TMP_DIR, path.join(paths.TMP_DIR, 'config.js')
+  );
+  return builder.buildStatic(
+    paths.INDEX_SCRIPT, paths.BUILD_INDEX_JS, {runtime: true}
+  )
+  .catch((err) => cb(err));
+});
 
 
 gulp.task('build:js', (callback) => runSequence(
