@@ -12,18 +12,15 @@ import './utils';
 import * as paths from './paths';
 import gulp from './_gulp';
 
-import packageSpec from '../package.json';
-
 
 const $ = gulpLoadPlugins();
 
 
 export function makeSettings(environments) {
   gulp.task('build:make-settings', () => {
-    let env = process.env.ENV || 'development';
-    let outfile = path.join(paths.SRC_DIR, paths.SETTINGS);
-    let settings = environments[env];
-    settings.VERSION = packageSpec.version;
+    const env = process.env.ENV || 'development';
+    const outfile = path.join(paths.SRC_DIR, paths.SETTINGS);
+    const settings = environments[env];
     $.util.log(settings);
 
     return fs.writeFileSync(outfile,
