@@ -20,7 +20,7 @@ const BS_OPTIONS = {
 };
 
 const BS_SERVER_OPTIONS = {
-    baseDir: ['.', paths.SRC_DIR, paths.TMP_DIR],
+    baseDir: [paths.SRC_DIR, paths.TMP_DIR],
     middleware: (req, res, next) => {
       res.setHeader('Access-Control-Allow-Origin', '*');
       next();

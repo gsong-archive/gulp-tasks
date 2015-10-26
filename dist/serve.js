@@ -33,7 +33,7 @@
   };
 
   var BS_SERVER_OPTIONS = {
-    baseDir: ['.', _paths.SRC_DIR, _paths.TMP_DIR],
+    baseDir: [_paths.SRC_DIR, _paths.TMP_DIR],
     middleware: function middleware(req, res, next) {
       res.setHeader('Access-Control-Allow-Origin', '*');
       next();
