@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === 'function' && define.amd) {
-    define(['exports', 'fs', 'path', 'gulp-load-plugins', 'run-sequence', './clean', './script', './style', './utils', './paths', './_gulp', '../package.json'], factory);
+    define(['exports', 'fs', 'path', 'systemjs-builder', 'gulp-load-plugins', 'run-sequence', './clean', './script', './style', './utils', './paths', './_gulp', '../package.json'], factory);
   } else if (typeof exports !== 'undefined') {
-    factory(exports, require('fs'), require('path'), require('gulp-load-plugins'), require('run-sequence'), require('./clean'), require('./script'), require('./style'), require('./utils'), require('./paths'), require('./_gulp'), require('../package.json'));
+    factory(exports, require('fs'), require('path'), require('systemjs-builder'), require('gulp-load-plugins'), require('run-sequence'), require('./clean'), require('./script'), require('./style'), require('./utils'), require('./paths'), require('./_gulp'), require('../package.json'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.fs, global.path, global.gulpLoadPlugins, global.runSequence, global.clean, global.script, global.style, global.utils, global.paths, global.gulp, global.packageSpec);
+    factory(mod.exports, global.fs, global.path, global.Builder, global.gulpLoadPlugins, global.runSequence, global.clean, global.script, global.style, global.utils, global.paths, global.gulp, global.packageSpec);
     global.build = mod.exports;
   }
-})(this, function (exports, _fs, _path, _gulpLoadPlugins, _runSequence, _clean, _script, _style, _utils, _paths, _gulp, _packageJson) {
+})(this, function (exports, _fs, _path, _systemjsBuilder, _gulpLoadPlugins, _runSequence, _clean, _script, _style, _utils, _paths, _gulp, _packageJson) {
   'use strict';
 
   Object.defineProperty(exports, '__esModule', {
@@ -23,6 +23,8 @@
   var _fs2 = _interopRequireDefault(_fs);
 
   var _path2 = _interopRequireDefault(_path);
+
+  var _Builder = _interopRequireDefault(_systemjsBuilder);
 
   var _gulpLoadPlugins2 = _interopRequireDefault(_gulpLoadPlugins);
 
@@ -46,7 +48,12 @@
     });
   }
 
-  _gulp2['default'].task('build:jspm', ['compile:styles', 'js:lint'], $.shell.task(['jspm bundle-sfx ' + _paths.TMP_INDEX_JS + ' ' + _paths.BUILD_INDEX_JS]));
+  _gulp2['default'].task('build:jspm', ['compile:styles', 'js:lint'], function (cb) {
+    var builder = new _Builder['default'](_paths.TMP_DIR, _path2['default'].join(_paths.TMP_DIR, 'config.js'));
+    return builder.buildStatic(_paths.INDEX_SCRIPT, _paths.BUILD_INDEX_JS, { runtime: true })['catch'](function (err) {
+      return cb(err);
+    });
+  });
 
   _gulp2['default'].task('build:js', function (callback) {
     return (0, _runSequence2['default'])('build:jspm', 'js:replace_paths', callback);
