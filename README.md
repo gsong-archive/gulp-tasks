@@ -10,7 +10,11 @@ This package provides common tasks for:
 * Deploying to GitHub Pages
 
 Note that these tasks are tightly coupled to a certain project structure, which
-can be seen at the corresponding [Apple Store Search][] project.
+can be seen at the corresponding [Apple Store Search][] project. If you have
+your own directory structure or other requirements, you should create a fork of
+this project for your own purpose.
+
+The tasks are written in ES2015, but transpiled to ES5 in CommonJS format.
 
 ## Install
 
@@ -28,20 +32,7 @@ import 'babel-polyfill';
 import gulp from 'gulp';
 import {makeSettings} from 'gulp-tasks';
 
-import environments from './src/config/environments';
-
-
-makeSettings(environments);
-gulp.task('default', ['serve:dev'], () => {});
-```
-
-Note that the only function exported from the package is `makeSettings`, which
-is responsible for creating the `build:make-settings` task. The input
-`environments` is an object whose keys are the different environments the
-project will run in, for example, development and production:
-
-```js
-{
+const environments = {
   development: {
     HTTP_CACHE_SIZE: 100,
     ENABLE_DEBUG_LOGGING: true
@@ -49,9 +40,16 @@ project will run in, for example, development and production:
   production: {
     HTTP_CACHE_SIZE: 5000,
     ENABLE_DEBUG_LOGGING: false
-  },
-}
+  }
+};
+
+makeSettings(environments);
 ```
+
+Note that the only function exported from the package is `makeSettings`, which
+is responsible for creating the `build:make-settings` task. The input
+`environments` is an object whose keys are the different environments the
+project will run in.
 
 In order to access the different environments, you need to set the shell
 environment variable `ENV`. For example:
