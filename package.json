@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/gsong/gulp-tasks#readme",
   "dependencies": {
+    "babel-polyfill": "~6.1.19",
     "browser-sync": "~2.10.0",
     "del": "~2.1.0",
     "gh-pages": "~0.5.0",

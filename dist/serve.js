@@ -1,5 +1,7 @@
 'use strict';
 
+require('babel-polyfill');
+
 var _browserSync = require('browser-sync');
 
 var _browserSync2 = _interopRequireDefault(_browserSync);

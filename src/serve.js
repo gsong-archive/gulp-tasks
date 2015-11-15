@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import browserSync from 'browser-sync';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import runSequence from 'run-sequence';
