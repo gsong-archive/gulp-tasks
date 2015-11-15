@@ -1,6 +1,7 @@
 ## 0.3.0 (2015-11-15)
-* Upgrade to using Babel 6
+* Upgrade to use Babel 6
 * Compile to CJS instead of UMD
+* Add README
 
 ## 0.2.1 (2015-10-26)
 * Don't automatically include version in settings, let each app handle that
