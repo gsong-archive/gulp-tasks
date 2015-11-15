@@ -1,60 +1,34 @@
-(function (global, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define(['exports', 'path'], factory);
-  } else if (typeof exports !== 'undefined') {
-    factory(exports, require('path'));
-  } else {
-    var mod = {
-      exports: {}
-    };
-    factory(mod.exports, global.path);
-    global.paths = mod.exports;
-  }
-})(this, function (exports, _path) {
-  'use strict';
+'use strict';
 
-  Object.defineProperty(exports, '__esModule', {
-    value: true
-  });
-
-  function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-  var _path2 = _interopRequireDefault(_path);
-
-  var BUILD_DIR = 'build/';
-  exports.BUILD_DIR = BUILD_DIR;
-  var DIST_DIR = 'dist/';
-  exports.DIST_DIR = DIST_DIR;
-  var SRC_DIR = 'src/';
-  exports.SRC_DIR = SRC_DIR;
-  var TMP_DIR = '.tmp/';
-
-  exports.TMP_DIR = TMP_DIR;
-  var BUILD_ALL = _path2['default'].join(BUILD_DIR, '**/*');
-
-  exports.BUILD_ALL = BUILD_ALL;
-  var SRC_ALL = _path2['default'].join(SRC_DIR, '**/*');
-  exports.SRC_ALL = SRC_ALL;
-  var SRC_HTML = _path2['default'].join(SRC_DIR, '**/*.html');
-  exports.SRC_HTML = SRC_HTML;
-  var SRC_INDEX_HTML = _path2['default'].join(SRC_DIR, 'index.html');
-  exports.SRC_INDEX_HTML = SRC_INDEX_HTML;
-  var SRC_SCRIPT = _path2['default'].join(SRC_DIR, '**/*.js');
-  exports.SRC_SCRIPT = SRC_SCRIPT;
-  var SRC_STYLE = _path2['default'].join(SRC_DIR, '**/*.scss');
-
-  exports.SRC_STYLE = SRC_STYLE;
-  var TMP_IMAGE = _path2['default'].join(TMP_DIR, '**/*.+(png|jpg|svg)');
-
-  exports.TMP_IMAGE = TMP_IMAGE;
-  // Build time internal app paths
-  var INDEX_SCRIPT_BASE = 'index';
-  var INDEX_SCRIPT = INDEX_SCRIPT_BASE + '.js';
-  exports.INDEX_SCRIPT = INDEX_SCRIPT;
-  var BUILD_INDEX_JS = _path2['default'].join(BUILD_DIR, INDEX_SCRIPT);
-  exports.BUILD_INDEX_JS = BUILD_INDEX_JS;
-  var TMP_INDEX_JS = _path2['default'].join(TMP_DIR, INDEX_SCRIPT_BASE);
-  exports.TMP_INDEX_JS = TMP_INDEX_JS;
-  var SETTINGS = 'config/settings.js';
-  exports.SETTINGS = SETTINGS;
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
+exports.SETTINGS = exports.TMP_INDEX_JS = exports.BUILD_INDEX_JS = exports.INDEX_SCRIPT = exports.TMP_IMAGE = exports.SRC_STYLE = exports.SRC_SCRIPT = exports.SRC_INDEX_HTML = exports.SRC_HTML = exports.SRC_ALL = exports.BUILD_ALL = exports.TMP_DIR = exports.SRC_DIR = exports.DIST_DIR = exports.BUILD_DIR = undefined;
+
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var BUILD_DIR = exports.BUILD_DIR = 'build/';
+var DIST_DIR = exports.DIST_DIR = 'dist/';
+var SRC_DIR = exports.SRC_DIR = 'src/';
+var TMP_DIR = exports.TMP_DIR = '.tmp/';
+
+var BUILD_ALL = exports.BUILD_ALL = _path2.default.join(BUILD_DIR, '**/*');
+
+var SRC_ALL = exports.SRC_ALL = _path2.default.join(SRC_DIR, '**/*');
+var SRC_HTML = exports.SRC_HTML = _path2.default.join(SRC_DIR, '**/*.html');
+var SRC_INDEX_HTML = exports.SRC_INDEX_HTML = _path2.default.join(SRC_DIR, 'index.html');
+var SRC_SCRIPT = exports.SRC_SCRIPT = _path2.default.join(SRC_DIR, '**/*.js');
+var SRC_STYLE = exports.SRC_STYLE = _path2.default.join(SRC_DIR, '**/*.scss');
+
+var TMP_IMAGE = exports.TMP_IMAGE = _path2.default.join(TMP_DIR, '**/*.+(png|jpg|svg)');
+
+// Build time internal app paths
+var INDEX_SCRIPT_BASE = 'index';
+var INDEX_SCRIPT = exports.INDEX_SCRIPT = INDEX_SCRIPT_BASE + '.js';
+var BUILD_INDEX_JS = exports.BUILD_INDEX_JS = _path2.default.join(BUILD_DIR, INDEX_SCRIPT);
+var TMP_INDEX_JS = exports.TMP_INDEX_JS = _path2.default.join(TMP_DIR, INDEX_SCRIPT_BASE);
+var SETTINGS = exports.SETTINGS = 'config/settings.js';
