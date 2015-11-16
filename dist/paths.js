@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SETTINGS = exports.TMP_INDEX_JS = exports.BUILD_INDEX_JS = exports.INDEX_SCRIPT = exports.TMP_IMAGE = exports.SRC_STYLE = exports.SRC_SCRIPT = exports.SRC_INDEX_HTML = exports.SRC_HTML = exports.SRC_ALL = exports.BUILD_ALL = exports.TMP_DIR = exports.SRC_DIR = exports.DIST_DIR = exports.BUILD_DIR = undefined;
+exports.SETTINGS = exports.TMP_INDEX_JS = exports.BUILD_INDEX_JS = exports.INDEX_SCRIPT = exports.TMP_IMAGE = exports.SRC_STYLE = exports.SRC_STYLE_ALL = exports.SRC_SCRIPT = exports.SRC_SCRIPT_ALL = exports.SRC_INDEX_HTML = exports.SRC_HTML = exports.SRC_ALL = exports.BUILD_ALL = exports.TMP_DIR = exports.SRC_DIR = exports.DIST_DIR = exports.BUILD_DIR = undefined;
 
 var _path = require('path');
 
@@ -18,11 +18,14 @@ var TMP_DIR = exports.TMP_DIR = '.tmp/';
 
 var BUILD_ALL = exports.BUILD_ALL = _path2.default.join(BUILD_DIR, '**/*');
 
+var _SRC_EXCLUDE = '!' + _path2.default.join(SRC_DIR, 'jspm_packages/**/*');
 var SRC_ALL = exports.SRC_ALL = _path2.default.join(SRC_DIR, '**/*');
 var SRC_HTML = exports.SRC_HTML = _path2.default.join(SRC_DIR, '**/*.html');
 var SRC_INDEX_HTML = exports.SRC_INDEX_HTML = _path2.default.join(SRC_DIR, 'index.html');
-var SRC_SCRIPT = exports.SRC_SCRIPT = _path2.default.join(SRC_DIR, '**/*.js');
-var SRC_STYLE = exports.SRC_STYLE = _path2.default.join(SRC_DIR, '**/*.scss');
+var SRC_SCRIPT_ALL = exports.SRC_SCRIPT_ALL = _path2.default.join(SRC_DIR, '**/*.js');
+var SRC_SCRIPT = exports.SRC_SCRIPT = [_SRC_EXCLUDE, SRC_SCRIPT_ALL];
+var SRC_STYLE_ALL = exports.SRC_STYLE_ALL = _path2.default.join(SRC_DIR, '**/*.scss');
+var SRC_STYLE = exports.SRC_STYLE = [_SRC_EXCLUDE, SRC_STYLE_ALL];
 
 var TMP_IMAGE = exports.TMP_IMAGE = _path2.default.join(TMP_DIR, '**/*.+(png|jpg|svg)');
 

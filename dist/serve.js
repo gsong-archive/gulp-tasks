@@ -81,8 +81,10 @@ _gulp2.default.task('serve:dev', ['build:make-settings', 'compile:styles', 'js:l
   (0, _browserSync2.default)(opts, done);
 
   _gulp2.default.watch(paths.SRC_HTML, ['reload']).on('change', reportChange);
-  _gulp2.default.watch(paths.SRC_SCRIPT, ['js:lint', 'reload']).on('change', reportChange);
-  _gulp2.default.watch(paths.SRC_STYLE, ['compile:styles', 'reload']).on('change', reportChange);
+
+  _gulp2.default.watch(paths.SRC_SCRIPT_ALL, ['js:lint', 'reload']).on('change', reportChange);
+
+  _gulp2.default.watch(paths.SRC_STYLE_ALL, ['compile:styles', 'reload']).on('change', reportChange);
 });
 
 _gulp2.default.task('serve:build', ['build'], function (done) {
