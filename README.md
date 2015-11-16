@@ -1,4 +1,4 @@
-# Gulp Tasks For JSPM / Babel 6 Based Angular Projects
+# Gulp Tasks For jspm / Babel 6 Based Angular Projects
 
 ## Summary
 
@@ -10,9 +10,10 @@ This package provides common tasks for:
 * Deploying to GitHub Pages
 
 Note that these tasks are tightly coupled to a certain project structure, which
-can be seen at the corresponding [Apple Store Search][] project. If you have
-your own directory structure or other requirements, you should create a fork of
-this project for your own purpose.
+can be seen at the corresponding [Apple Store Search (Babel
+Edition)][apple-store-search] project. If you have your own directory structure
+or other requirements, you should create a fork of this project for your own
+purpose.
 
 The tasks are written in ES2015, but transpiled to ES5 in CommonJS format.
 
@@ -109,4 +110,4 @@ Here's a complete list of tasks:
 ```
 
 
-[Apple Store Search]: https://github.com/gsong/apple-store-search
+[apple-store-search]: https://github.com/gsong/apple-store-search
