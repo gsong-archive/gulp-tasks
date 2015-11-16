@@ -1,3 +1,6 @@
+## 0.3.1 (2015-11-15)
+* Better Gulp task error notification
+
 ## 0.3.0 (2015-11-15)
 * Upgrade to use Babel 6
 * Compile to CJS instead of UMD

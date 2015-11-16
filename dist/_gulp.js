@@ -21,7 +21,7 @@ _gulp2.default.src = function (globs, options) {
   return _gulpsrc.apply(_gulp2.default, [globs, options]).pipe($.plumber({
     errorHandler: function errorHandler(err) {
       $.notify.onError({
-        title: err.name, message: err.message, sound: 'Sosumi'
+        title: err.name, message: err.plugin + ' ' + err.message, sound: 'Sosumi'
       })(err);
       this.emit('end');
     }
