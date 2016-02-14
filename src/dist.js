@@ -27,7 +27,7 @@ gulp.task('dist:js', (callback) => runSequence(
 
 gulp.task('dist:html', () => gulp.src(paths.SRC_INDEX_HTML)
   .pipe($.htmlReplace({'js': paths.INDEX_SCRIPT}))
-  .pipe($.minifyHtml({empty: true}))
+  .pipe($.htmlmin())
   .pipe(gulp.dest(paths.BUILD_DIR))
 );
 
