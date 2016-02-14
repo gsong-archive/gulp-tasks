@@ -1,5 +1,6 @@
 ## 0.3.3 (2016-02-14)
 * Use `gulp-htmlmin` instead of `gulp-minify-html`
+* Ignore `src/config.js` during ESLint
 
 ## 0.3.2 (2015-11-15)
 * Don't lint vendor JS files
