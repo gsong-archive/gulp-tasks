@@ -1,6 +1,6 @@
 {
   "name": "gulp-tasks",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Gulp tasks for ES6/Babel based projects",
   "main": "dist/index.js",
   "scripts": {
