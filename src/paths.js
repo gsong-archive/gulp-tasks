@@ -13,7 +13,11 @@ export const SRC_ALL = path.join(SRC_DIR, '**/*');
 export const SRC_HTML = path.join(SRC_DIR, '**/*.html');
 export const SRC_INDEX_HTML = path.join(SRC_DIR, 'index.html');
 export const SRC_SCRIPT_ALL = path.join(SRC_DIR, '**/*.js');
-export const SRC_SCRIPT = [_SRC_EXCLUDE, SRC_SCRIPT_ALL];
+export const SRC_SCRIPT = [
+  _SRC_EXCLUDE,
+  `!${path.join(SRC_DIR, 'config.js')}`,
+  SRC_SCRIPT_ALL
+];
 export const SRC_STYLE_ALL = path.join(SRC_DIR, '**/*.scss');
 export const SRC_STYLE = [_SRC_EXCLUDE, SRC_STYLE_ALL];
 

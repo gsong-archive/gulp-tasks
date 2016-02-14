@@ -23,7 +23,7 @@ var SRC_ALL = exports.SRC_ALL = _path2.default.join(SRC_DIR, '**/*');
 var SRC_HTML = exports.SRC_HTML = _path2.default.join(SRC_DIR, '**/*.html');
 var SRC_INDEX_HTML = exports.SRC_INDEX_HTML = _path2.default.join(SRC_DIR, 'index.html');
 var SRC_SCRIPT_ALL = exports.SRC_SCRIPT_ALL = _path2.default.join(SRC_DIR, '**/*.js');
-var SRC_SCRIPT = exports.SRC_SCRIPT = [_SRC_EXCLUDE, SRC_SCRIPT_ALL];
+var SRC_SCRIPT = exports.SRC_SCRIPT = [_SRC_EXCLUDE, '!' + _path2.default.join(SRC_DIR, 'config.js'), SRC_SCRIPT_ALL];
 var SRC_STYLE_ALL = exports.SRC_STYLE_ALL = _path2.default.join(SRC_DIR, '**/*.scss');
 var SRC_STYLE = exports.SRC_STYLE = [_SRC_EXCLUDE, SRC_STYLE_ALL];
 
