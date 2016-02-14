@@ -39,7 +39,7 @@ _gulp2.default.task('dist:js', function (callback) {
 });
 
 _gulp2.default.task('dist:html', function () {
-  return _gulp2.default.src(paths.SRC_INDEX_HTML).pipe($.htmlReplace({ 'js': paths.INDEX_SCRIPT })).pipe($.minifyHtml({ empty: true })).pipe(_gulp2.default.dest(paths.BUILD_DIR));
+  return _gulp2.default.src(paths.SRC_INDEX_HTML).pipe($.htmlReplace({ 'js': paths.INDEX_SCRIPT })).pipe($.htmlmin()).pipe(_gulp2.default.dest(paths.BUILD_DIR));
 });
 
 _gulp2.default.task('dist:copy', function () {
